@@ -38,8 +38,7 @@ pub fn main() !void {
 
     while (it.next()) |line| {
         var it2 = std.mem.tokenizeScalar(u8, line, ' ');
-        const str = it2.next().?;
-        try arr1.append(try std.fmt.parseInt(i32, str, 10));
+        try arr1.append(try std.fmt.parseInt(i32, it2.next().?, 10));
         try arr2.append(try std.fmt.parseInt(i32, it2.next().?, 10));
     }
 
